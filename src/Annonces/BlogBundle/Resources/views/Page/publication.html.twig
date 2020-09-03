@@ -1,0 +1,56 @@
+{% extends 'AnnoncesBlogBundle::layout.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-9">
+
+                <h2>Publier une annonce</h2>
+                <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!<br><br></p>
+
+                <div class="well">
+                    {{ form_errors(form) }}
+                    {{ form_start(form) }}
+                    <form class="form-horizontal">
+                        <fieldset>
+                            <legend>Déposer une annonce</legend>
+                            <div class="form-group">
+                                <label for="inputName" class="col-md-4">Catégorie</label>
+                                <div class="col-md-8">
+                                    {{ form_widget(form.categoryId, { 'attr': {'class': 'form-control'} }) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName" class="col-md-4">Titre de l'annonce</label>
+                                <div class="col-md-8">
+                                    {{ form_widget(form.title, { 'attr': {'class': 'form-control', 'placeholder': 'Titre de l\'annonce'} }) }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputFirstname" class="col-md-4">Texte de l'annonce</label>
+                                <div class="col-md-8">
+                                    {{ form_widget(form.content, { 'attr': {'class': 'form-control', 'placeholder': 'Texte de l\'annonce'} }) }}
+                                </div>
+                            </div>
+
+                            <!--
+                              <div class="form-group">
+                                <div class="col-md-8 col-md-offset-4">
+                                  <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                </div>
+                              </div>
+                             -->
+                        </fieldset>
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">Publier l'annonce</button>
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+                    </form>
+                </div>
+
+            </div><!-- /.col-md-9 -->
+        </div>
+    </div>
+{% endblock %}

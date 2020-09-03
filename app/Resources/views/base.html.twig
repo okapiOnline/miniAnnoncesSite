@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{ include("::csshead.html.twig") }}
+<body>
+
+<!-- Navigation -->
+
+{{ include("::header.html.twig") }}
+
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-9">
+            {% block body%}{% endblock %}
+        </div>
+        <div class="col-md-3">
+            {% block publication %}
+            {% endblock %}
+            <br><br>
+
+            {% block sidebar %}
+
+            {% endblock %}
+        </div>
+    </div> <!-- /.container -->
+    <br><br>
+
+
+
+
+
+    <!-- Footer -->
+    {% block footer %}
+        {{ include("::footer.html.twig") }}
+    {% endblock %}
+</div>
+<!-- /.container -->
+
+{{ include('::script.html.twig') }}
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+{% extends 'AnnoncesBlogBundle::layout.html.twig' %}
+{% block body %}
+    <div class="container">
+    <div class="row">
+        <div class="col-md-9">
+
+            {% for flashMessage in app.session.flashbag.get('notice') %}
+                <div class="flash-notice">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+
+
+            <h2>Contacter l'annonceur</h2>
+
+            <div class="well">
+                {{ form_errors(form) }}
+                <form action="{{ path('annonces_blog_contact') }}" method="post" {{ form_enctype(form) }} class="horizontal">
+
+                    <fieldset>
+                        <legend>Contacter l'annonceur</legend>
+                        <div class="form-group">
+                            <label for="inputName" class="col-md-4">Nom</label>
+                            <div class="col-md-8">
+                                {{ form_widget(form.name, { 'attr': {'class': 'form-control', 'placeholder': 'Nom'} }) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-md-4">E-mail</label>
+                            <div class="col-md-8">
+                                {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'Adresse e-mail'} }) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-md-4">Sujet</label>
+                            <div class="col-md-8">
+                                {{ form_widget(form.subject, { 'attr': {'class': 'form-control', 'placeholder': 'Sujet'} }) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="TextareaMessage" class="col-md-4">Votre message</label>
+                            <div class="col-md-8">
+                                {{ form_widget(form.body, { 'attr': {'class': 'form-control', 'placeholder': 'Votre message'} }) }}
+                            </div>
+                        </div>
+                        {{ form_row(form._token) }}
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">Envoyer votre message</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+
+            </div>
+
+        </div><!-- /.col-md-9 -->
+</div>
+    </div>
+{% endblock %}

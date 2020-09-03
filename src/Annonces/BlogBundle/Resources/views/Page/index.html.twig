@@ -1,0 +1,47 @@
+{% extends 'AnnoncesBlogBundle::layout.html.twig' %}
+{% block publication %}
+    <a class="btn btn-primary btn-lg btn-block" href="{{ path('annonces_register_publication') }}">Publier une annonce</a>
+{% endblock %}
+{% block body %}
+    {% block description %}
+        <h2>Description</h2>
+        <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!<br><br></p>
+
+    {% endblock %}
+    <!-- .row .well -->
+
+    {% for post in posts %}
+        {% if post.online == 1 %}
+    <div class="row well">
+        <div class="col-md-12">
+            <div class="col-md-3">
+                <img alt="" class="img-responsive" src="http://placehold.it/180x180&amp;text=Annonce">
+            </div>
+
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-9">
+                        <h2 style="margin:0;padding:0;">{{ post.title }}</h2>
+                        <h3 style="margin-top:0;"><small>{{ post.categoryId.name }}</small></h3>
+                        <div>dddddddddddddddd</div>
+                    </div>
+                    <div class="col-md-3">
+                        <!-- Star
+                        <div class="lead">
+                            <div id="stars-existing" class="starrr" data-rating='4'></div>-->
+                        <!--<span id="count-existing">4</span> étoile(s)-->
+                        <!--</div>-->
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <a class="btn btn-default" href="{{ path('annonces_blog_view_slug', { 'id': post.id ,'slug': post.slug, 'year':  post.createdAt|date('Y')  }) }}" role="button">Lire la suite</a>
+            </div>
+        </div>
+    </div><!-- /.row .well -->
+    <!-- .row .well-->
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}

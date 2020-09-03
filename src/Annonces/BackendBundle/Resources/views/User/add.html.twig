@@ -1,0 +1,14 @@
+{% extends "AnnoncesBackendBundle::layout.html.twig" %}
+
+{% block body %}
+
+    <h2>Ajouter un utilisateur</h2>
+
+    {{ include("AnnoncesBackendBundle:User:form.html.twig") }}
+
+    <p>
+        Attention : cette annonce sera ajoutée directement
+        sur la page d'accueil après validation du formulaire.
+    </p>
+
+{% endblock %}

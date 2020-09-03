@@ -1,0 +1,68 @@
+{{ include("::csshead.html.twig") }}
+{{ include("::header.html.twig") }}
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Heading Row -->
+    <div class="row">
+        <div class="col-md-3">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Tableau de bord</h3>
+                        </div>
+                        <ul class="list-group">
+                            <a href="{{ path('annonces_blog_dashboard_identite', { 'id' : user.id }) }}" class="list-group-item">Identité</a>
+                            <a href="{{ path('annonces_blog_dashboard_editmail', { 'id' : user.id }) }}" class="list-group-item">E-mail</a>
+                            <a href="{{ path('annonces_blog_dashboard_editpassword', { 'id' : user.id }) }}" class="list-group-item">Mot de passe</a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.col-md-9 -->
+        <div class="col-md-9">
+            <div class="well">
+                {{ form_errors(form) }}
+                {{ form_start(form) }}
+                <form class="form-horizontal">
+                    <fieldset>
+                        <legend>Modifier l'e-mail</legend>
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-md-4">E-mail</label>
+                            <div class="col-md-8">
+                                {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': ' E-email'} }) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputValideemail" class="col-md-4">Mot de passe</label>
+                            <div class="col-md-8">
+                                <input class="form-control" id="inputValidepassword" placeholder="mot de passe" type="text">
+                            </div>
+                        </div>
+                            {{ form_widget(form._token) }}
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                {{ form_end(form) }}
+            </div>
+
+
+        </div>
+    </div>
+    <!-- /.row -->
+
+
+            {{ include("::footer.html.twig") }}
+
+        </div>
+        <!-- /.container -->
+{{ include('::script.html.twig') }}

@@ -1,0 +1,78 @@
+
+login:
+    path:     /connexion
+    defaults: { _controller: AnnoncesBlogBundle:Security:login}
+
+login_check:
+    path:   /login_check
+
+logout:
+    path:   /logout
+
+
+annonces_user_register:
+    path:     /inscription
+    defaults: { _controller: AnnoncesBlogBundle:Registration:register}
+
+
+annonces_blog_homepage:
+    path:     /
+    defaults: { _controller: AnnoncesBlogBundle:Page:index }
+    requirements:
+        _method: GET
+
+annonces_blog_category_slug:
+    path:    /categorie/{id}/{slug}
+    defaults:
+          _controller: AnnoncesBlogBundle:Page:postByCategory
+          _format     : html
+    requirements:
+        year: \d{4}
+        format: php|html
+
+
+annonces_blog_view_slug:
+    path:    /article/{year}/{id}/{slug}
+    defaults:
+          _controller: AnnoncesBlogBundle:Page:view
+          _format     : html
+    requirements:
+        year: \d{4}
+        format: php|html
+
+
+annonces_register_publication:
+    path:     /inscription-publication
+    defaults: { _controller: AnnoncesBlogBundle:Page:registerPublication}
+
+annonces_blog_contact:
+    path:     /contact
+    defaults: { _controller: AnnoncesBlogBundle:Page:contact}
+    requirements:
+        _method:  GET|POST
+
+
+annonces_blog_dashboard:
+    path:     /tableau-de-bord/{id}
+    defaults: { _controller: AnnoncesBlogBundle:Dashboard:index}
+    requirements:
+        id: \d+
+
+annonces_blog_dashboard_identite:
+    path:    /tableau-de-bord/identite/{id}
+    defaults: { _controller: AnnoncesBlogBundle:Dashboard:identite }
+    requirements:
+        id: \d+
+
+
+annonces_blog_dashboard_editmail:
+    path:     /tableau-de-bord/edit-mail/{id}
+    defaults: { _controller: AnnoncesBlogBundle:Dashboard:editmail}
+    requirements:
+        id: \d+
+
+annonces_blog_dashboard_editpassword:
+    path:     /tableau-de-bord/password/{id}
+    defaults: { _controller: AnnoncesBlogBundle:Dashboard:changePassword }
+    requirements:
+        id: \d+

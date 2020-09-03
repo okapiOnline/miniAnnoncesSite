@@ -1,0 +1,75 @@
+{{ include("::csshead.html.twig") }}
+{{ include("::header.html.twig") }}
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Heading Row -->
+    <div class="row">
+        <div class="col-md-3">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Tableau de bord</h3>
+                        </div>
+                        <ul class="list-group">
+                            <a href="{{ path('annonces_blog_dashboard_identite', { 'id' : user.id }) }}" class="list-group-item">Identité</a>
+                            <a href="{{ path('annonces_blog_dashboard_editmail', { 'id' : user.id }) }}" class="list-group-item">E-mail</a>
+                            <a href="{{ path('annonces_blog_dashboard_editpassword', { 'id' : user.id }) }}" class="list-group-item">Mot de passe</a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.col-md-9 -->
+        <div class="col-md-9">
+
+
+            <!-- a faire plus tard
+            <div class="well">
+                <form class="form-horizontal">
+                  <fieldset>
+                    <legend>Informations générales</legend>
+                    <div class="form-group">
+                      <label for="inputDate" class="col-md-4">Date</label>
+                      <div class="col-md-8">
+                        <input class="form-control" id="inputDate" placeholder="Date de naissance" type="text">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="select" class="col-md-4">Sexe</label>
+                      <div class="col-md-8">
+                        <select class="form-control" id="select">
+                          <option>Non précisé</option>
+                          <option>Femme</option>
+                          <option>Homme</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-md-8 col-md-offset-4">
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                      </div>
+                    </div>
+                  </fieldset>
+                </form>
+            </div>
+            -->
+
+        </div>
+    </div>
+    <!-- /.row -->
+
+
+{% block body %}
+
+{% endblock %}
+ {{ include("::footer.html.twig") }}
+
+</div>
+<!-- /.container -->
+{{ include('::script.html.twig') }}

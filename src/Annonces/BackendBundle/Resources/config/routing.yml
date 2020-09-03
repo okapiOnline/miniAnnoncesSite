@@ -1,0 +1,108 @@
+
+annonces_backend_login:
+    path:     /login
+    defaults: { _controller: AnnoncesBackendBundle:Security:login}
+
+annonces_backend_dashboard:
+    path:     /dashboard
+    defaults: { _controller: AnnoncesBackendBundle:Dashboard:index}
+
+
+
+#route category
+annonces_category_home:
+    path:     /categorie/{page}
+    defaults: { _controller: AnnoncesBackendBundle:Category:index, page: 1 }
+    requirements:
+       page: \d*
+
+annonces_category_view:
+    path:    /categorie/{id}
+    defaults: { _controller: AnnoncesBackendBundle:Category:view }
+    requirements:
+         id: \d+
+
+
+annonces_category_add:
+    path:    /categorie/add
+    defaults: { _controller: AnnoncesBackendBundle:Category:add }
+
+
+annonces_category_edit:
+    path:    /categorie/edit/{id}
+    defaults: { _controller: AnnoncesBackendBundle:Category:edit }
+    requirements:
+        id: \d+
+
+
+annonces_category_delete:
+    path:    /categorie/delete/{id}
+    defaults: { _controller: AnnoncesBackendBundle:Category:delete }
+    requirements:
+        id: \d+
+
+
+#route post
+annonces_post_home:
+    path:     /article/{page}
+    defaults: { _controller: AnnoncesBackendBundle:Post:index, page: 1 }
+    requirements:
+       page: \d*
+
+annonces_post_view:
+    path:    /article/{id}
+    defaults: { _controller: AnnoncesBackendBundle:Post:view }
+    requirements:
+         id: \d+
+
+
+annonces_post_add:
+    path:    /article/add
+    defaults: { _controller: AnnoncesBackendBundle:Post:add }
+
+
+annonces_post_edit:
+    path:    /article/edit/{id}
+    defaults: { _controller: AnnoncesBackendBundle:Post:edit }
+    requirements:
+        id: \d+
+
+
+annonces_post_delete:
+    path:    /article/delete/{id}
+    defaults: { _controller: AnnoncesBackendBundle:Post:delete }
+    requirements:
+        id: \d+
+
+
+#route user
+annonces_user_home:
+    path:     /user/{page}
+    defaults: { _controller: AnnoncesBackendBundle:User:index, page: 1 }
+    requirements:
+       page: \d*
+
+annonces_user_view:
+    path:    /user/{id}
+    defaults: { _controller: AnnoncesBackendBundle:User:view }
+    requirements:
+         id: \d+
+
+
+annonces_user_add:
+    path:    /user/add
+    defaults: { _controller: AnnoncesBackendBundle:User:register }
+
+
+annonces_user_edit:
+    path:    /user/edit/{id}
+    defaults: { _controller: AnnoncesBackendBundle:User:edit }
+    requirements:
+        id: \d+
+
+
+annonces_user_delete:
+    path:    /user/delete/{id}
+    defaults: { _controller: AnnoncesBackendBundle:User:delete }
+    requirements:
+        id: \d+

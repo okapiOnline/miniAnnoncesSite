@@ -1,0 +1,9 @@
+annonces_backend:
+    resource: "@AnnoncesBackendBundle/Resources/config/routing.yml"
+    prefix:   /admin/
+
+annonces_blog:
+    resource: "@AnnoncesBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
